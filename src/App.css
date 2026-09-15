@@ -1,0 +1,190 @@
+.resume-page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--resume-page-padding-top)
+    var(--resume-page-padding-inline)
+    var(--resume-page-padding-bottom);
+}
+
+.resume-header {
+  margin-bottom: var(--resume-header-margin-bottom);
+  padding: var(--resume-header-padding-top)
+    0
+    var(--resume-header-padding-bottom);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.resume-header h1 {
+  margin: 0;
+  color: var(--resume-header-primary-color);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.resume-header h2 {
+  margin: var(--space-3) 0 var(--space-4);
+  color: var(--resume-header-secondary-color);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: var(--font-weight-semibold);
+}
+
+.summary {
+  max-width: 68rem;
+  margin: 0;
+  color: var(--resume-header-summary-color);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.resume-section {
+  margin-top: var(--space-10);
+}
+
+.section-heading-wrap {
+  margin-bottom: var(--space-4);
+}
+
+.resume-section h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  display: inline-block;
+}
+
+.resume-section h3::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.45rem;
+  background: linear-gradient(90deg, var(--color-accent), rgba(190, 91, 53, 0.15));
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.card,
+.profile-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 18px;
+  padding: 1.4rem 1.35rem;
+  box-shadow: 0 14px 35px rgba(20, 33, 61, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+
+.card h4 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-card-title);
+}
+
+.company {
+  margin: 0.38rem 0 0;
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.87rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.description {
+  margin: 0.95rem 0 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.achievement-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--color-text-secondary);
+  display: grid;
+  gap: 0.6rem;
+  line-height: 1.6;
+}
+
+.tag-list {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-surface-tag);
+  color: var(--color-tag-text);
+  font-size: 0.76rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+}
+
+.skill-tag {
+  background: var(--color-surface-skill);
+  color: var(--color-skill-text);
+}
+
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  align-items: center;
+}
+
+.contact-list a,
+.contact-list span {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .resume-page {
+    padding-top: var(--space-8);
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .meta {
+    text-align: left;
+    white-space: normal;
+  }
+}

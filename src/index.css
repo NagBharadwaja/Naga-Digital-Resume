@@ -1,0 +1,11 @@
+#root {
+  max-width: 100%;
+  min-height: 100svh;
+  background: #f5f1e8;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #344054;
+}

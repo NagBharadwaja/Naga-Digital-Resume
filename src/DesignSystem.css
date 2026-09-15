@@ -1,0 +1,373 @@
+/*
+    Naga Digital Resume Visual Language Inventory
+
+    Source: App.css, index.css
+    
+    This file documents the current visual language.
+    It is not yet the active token layer
+*/
+
+/*
+    =========================================================
+    Design Direction
+    =========================================================
+
+    Personality: Editorial, Warm, Professional, Minimal, Content-focused.
+
+    Core visual idea:
+    - Dark navy creates hierarchy.
+    - Warm orange provides emphasis.
+    - Warm cream creates a paper-like background.
+    - Translucent cards separate content from the page.
+*/
+
+/*
+    =========================================================
+    Color Inventory
+    =========================================================
+
+    Primary text
+    - Value: #14213d (Dark Navy)
+    - Used by: .resume-header h1, .resume-section h3, .card h4, .contact-list a, .contact-list span.
+    Secondary text
+    - Value: #be5b35 (Warm Orange)
+    - Used by: .eyebrow, .resume-section h3::after, .card, .profile-card, .company
+    Background
+    - Value: #f3e7de (Warm Cream)
+    - Used by: .tag
+    Text
+    - Value: #344054 (Dark Gray)
+    - Used by: .resume-header h2, .resume-section p, .summary, .description, .achievement-list
+    Muted Text
+    - Value: #475467 (Medium Gray)
+    - Used by: .meta
+    Page background
+    - Value: #f5f1e8 (Light Cream)
+    - Used by: #root (page background)
+    Card background
+    - Value: rgba(255, 255, 255, 0.78)
+    - Used by: .card, .profile-card
+    Technology tag
+    - Background: #f3e7de
+    - Text: #5a2d18
+    - Used by: .tag
+
+    Skill tag
+    - Background: #e9f0ff
+    - Text: #1d4ed8
+    - Used by: .skill-tag
+
+    Card border
+    - Value: rgba(20, 33, 61, 0.08)
+    - Used by: .card, .profile-card
+
+    Card shadow
+    - Value: 0 14px 35px rgba(20, 33, 61, 0.06)
+    - Used by: .card, .profile-card
+*/
+
+/* =========================================================
+   Typography Inventory
+   =========================================================
+
+  Font family:
+  - Georgia
+  - Times New Roman
+  - Serif fallback
+
+  Main heading:
+  Selector: .resume-header h1
+  Size: clamp(2.5rem, 5vw, 4.5rem)
+  Line height: 1
+  Letter spacing: -0.06em
+
+  Subtitle:
+  Selector: .resume-header h2
+  Size: clamp(1.1rem, 2vw, 1.5rem)
+  Weight: 600
+
+  Summary text:
+  Selector: .summary
+  Size: 1.05rem
+  Line height: 1.7
+
+  Section heading:
+  Selector: .resume-section h3
+  Size: 1.15rem
+  Transform: uppercase
+  Letter spacing: 0.1em
+
+  Eyebrow:
+  Selector: .eyebrow
+  Size: 0.78rem
+  Weight: 800
+  Transform: uppercase
+  Letter spacing: 0.14em
+
+  Metadata:
+  Selector: .meta
+  Size: 0.87rem
+  Color: muted text
+
+  Tags:
+  Selector: .tag
+  Size: 0.76rem
+  Weight: 700
+  Letter spacing: 0.02em
+*/
+
+/* =========================================================
+   Spacing Inventory
+   =========================================================
+
+  Page container:
+  Selector: .resume-page
+  Maximum width: 1120px
+  Horizontal padding: 1.5rem
+  Top padding: 3.5rem
+  Bottom padding: 5rem
+
+  Header:
+  Selector: .resume-header
+  Bottom margin: 2.5rem
+  Top padding: 2rem
+  Bottom padding: 0.5rem
+
+  Sections:
+  Selector: .resume-section
+  Top margin: 2.5rem
+
+  Section heading:
+  Selector: .section-heading-wrap
+  Bottom margin: 1rem
+
+  Card:
+  Selector: .card, .profile-card
+  Vertical padding: 1.4rem
+  Horizontal padding: 1.35rem
+
+  Card header:
+  Selector: .card-header
+  Gap: 1.25rem
+
+  Stack:
+  Selector: .stack
+  Gap: 1rem
+
+  Achievement list:
+  Selector: .achievement-list
+  Item gap: 0.6rem
+
+  Tags:
+  Selector: .tag-list
+  Gap: 0.6rem
+  Top margin: 1rem
+*/
+
+/* =========================================================
+   Shape Inventory
+   =========================================================
+   
+  Card:
+  - Border radius: 18px
+  - Left accent border: 4px
+
+  Tag:
+  - Border radius: 999px
+  - Shape: pill
+
+  Section decoration:
+  - Height: 2px
+  - Linear gradient using the accent color
+*/
+
+
+/* =========================================================
+   Layout Inventory
+   =========================================================
+   
+  Main content:
+  - Centered container
+  - Maximum width of 1120px
+
+  Card collection:
+  - Single-column CSS grid
+  - 1rem gap
+
+  Card header:
+  - Horizontal flex layout on desktop
+  - Content aligned to the top
+  - Space distributed between main content and metadata
+
+  Contact links:
+  - Flexible wrapping row
+  - Vertically centered
+*/
+
+
+/* =========================================================
+   Responsive Inventory
+   =========================================================
+   
+  Breakpoint:
+  - 720px
+
+  Below 720px:
+  - Page top padding changes to 2rem.
+  - Card header changes from row to column.
+  - Metadata becomes left-aligned.
+  - Metadata may wrap onto multiple lines.
+*/
+
+
+/* =========================================================
+   Interaction Inventory
+   =========================================================
+
+  Contact links:
+  - No underline by default.
+  - Underline on hover.
+  - Underline on keyboard focus.
+
+  Not currently defined:
+  - Shared focus-visible style for all interactive elements.
+  - Hover state for cards.
+  - Reduced-motion behavior.
+  - Dark theme.
+  - Loading, empty, or error states.
+*/
+
+/*
+  Design tokens for Naga Digital Resume Visual Language Inventory
+  - These tokens are derived from the current visual language.
+*/
+
+/* =========================================================
+   Primitive Tokens
+   ========================================================= */
+:root {
+  --color-navy-900: #14213d;
+  --color-navy-700: #344054;
+  --color-navy-600: #475467;
+
+  --color-orange-600: #be5b35;
+  --color-brown-900: #5a2d18;
+
+  --color-cream-100: #f5f1e8;
+  --color-cream-200: #f3e7de;
+  --color-blue-100: #e9f0ff;
+  --color-blue-700: #1d4ed8;
+  --color-white: #ffffff;
+
+  /* Opacity */
+  --opacity-card: 0.78;
+  --opacity-border: 0.08;
+  --opacity-shadow: 0.06;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-14: 3.5rem;
+  --space-20: 5rem;
+
+  /* Typography */
+  --font-family-body: Georgia, 'Times New Roman', serif;
+
+  --font-size-xs: 0.76rem;
+  --font-size-sm: 0.78rem;
+  --font-size-meta: 0.87rem;
+  --font-size-base: 1rem;
+  --font-size-summary: 1.05rem;
+  --font-size-section: 1.15rem;
+  --font-size-card-title: 1.2rem;
+
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1;
+  --line-height-body: 1.6;
+  --line-height-relaxed: 1.7;
+
+  /* Shape */
+  --radius-card: 18px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --content-max-width: 1120px;
+  --breakpoint-mobile: 720px;
+
+  /* Effects */
+  --shadow-card: 0 14px 35px rgba(20, 33, 61, var(--opacity-shadow));
+}
+
+/* =========================================================
+   Semantic Tokens
+   ========================================================= */
+:root {
+  /* Text */
+  --color-text-primary: var(--color-navy-900);
+  --color-text-secondary: var(--color-navy-700);
+  --color-text-muted: var(--color-navy-600);
+
+  /* Surfaces */
+  --color-surface-page: var(--color-cream-100);
+  --color-surface-card: rgb(255 255 255 / var(--opacity-card));
+  --color-surface-tag: var(--color-cream-200);
+  --color-surface-skill: var(--color-blue-100);
+
+  /* Accent and borders */
+  --color-accent: var(--color-orange-600);
+  --color-tag-text: var(--color-brown-900);
+  --color-skill-text: var(--color-blue-700);
+  --color-border-subtle: rgb(20 33 61 / var(--opacity-border));
+}
+
+/* =========================================================
+   Component Tokens
+   ========================================================= */
+:root {
+  /* Resume page */
+  --resume-page-padding-inline: var(--space-6);
+  --resume-page-padding-top: var(--space-14);
+  --resume-page-padding-bottom: var(--space-20);
+
+  /* Resume header */
+  --resume-header-margin-bottom: var(--space-10);
+  --resume-header-padding-top: var(--space-8);
+  --resume-header-padding-bottom: var(--space-2);
+  --resume-header-primary-color: var(--color-text-primary);
+  --resume-header-secondary-color: var(--color-text-secondary);
+  --resume-header-summary-color: var(--color-text-secondary);
+
+  /* Sections */
+  --section-margin-top: var(--space-10);
+  --section-heading-margin-bottom: var(--space-4);
+
+  /* Cards */
+  --card-padding-block: 1.4rem;
+  --card-padding-inline: 1.35rem;
+  --card-border-width: 1px;
+  --card-accent-width: 4px;
+  --card-header-gap: var(--space-5);
+
+  /* Lists */
+  --list-item-gap: var(--space-2);
+  --stick-gap: var(--space-4);
+
+  /* Tags */
+  --tag-padding-block: var(--space-2);
+  --tag-padding-inline: var(--space-3);
+  --tag-gap: var(--space-2);
+  --tag-radius: var(--radius-pill);
+
+  /* Contact links */
+  --contact-column-gap: var(--space-4);
+  --contact-row-gap: var(--space-3);
+}
