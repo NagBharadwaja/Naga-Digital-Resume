@@ -1,11 +1,104 @@
-#root {
-  max-width: 100%;
-  min-height: 100svh;
-  background: #f5f1e8;
+/* =========================================================
+   Global Reset
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-surface-page);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  text-rendering: optimizeLegibility;
 }
 
 body {
+  min-width: 320px;
+  min-height: 100svh;
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  color: #344054;
+  background: var(--color-surface-page);
+  color: var(--color-text-secondary);
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* =========================================================
+   Element Defaults
+   ========================================================= */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   Accessibility
+   ========================================================= */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* =========================================================
+   Component globals
+   ========================================================= */
+.resume-page {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--resume-page-padding-top)
+    var(--resume-page-padding-inline)
+    var(--resume-page-padding-bottom);
+}
+
+.resume-section {
+  margin-top: var(--space-10);
+}
+
+.card,
+.profile-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 18px;
+  padding: 1.4rem 1.35rem;
+  box-shadow: 0 14px 35px rgba(20, 33, 61, 0.06);
 }

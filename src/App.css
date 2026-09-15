@@ -1,11 +1,3 @@
-.resume-page {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  padding: var(--resume-page-padding-top)
-    var(--resume-page-padding-inline)
-    var(--resume-page-padding-bottom);
-}
-
 .resume-header {
   margin-bottom: var(--resume-header-margin-bottom);
   padding: var(--resume-header-padding-top)
@@ -45,10 +37,6 @@
   font-size: 1.05rem;
 }
 
-.resume-section {
-  margin-top: var(--space-10);
-}
-
 .section-heading-wrap {
   margin-bottom: var(--space-4);
 }
@@ -75,16 +63,6 @@
 .stack {
   display: grid;
   gap: 1rem;
-}
-
-.card,
-.profile-card {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(20, 33, 61, 0.08);
-  border-left: 4px solid var(--color-accent);
-  border-radius: 18px;
-  padding: 1.4rem 1.35rem;
-  box-shadow: 0 14px 35px rgba(20, 33, 61, 0.06);
 }
 
 .card-header {
