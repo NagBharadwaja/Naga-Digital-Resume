@@ -1,4 +1,11 @@
 import type { Experience, Project, Resume } from '../data/types'
+import { Card } from './primitives/Card'
+import { Container } from './primitives/Container'
+import { Heading } from './primitives/Heading'
+import { Link } from './primitives/Link'
+import { Stack } from './primitives/Stack'
+import { Tag } from './primitives/Tag'
+import { Text } from './primitives/Text'
 
 interface ResumePageProps {
   resume: Resume
@@ -14,9 +21,9 @@ function ResumeSection({
   return (
     <section className="resume-section" aria-labelledby={title.toLowerCase().replace(/\s+/g, '-')}> 
       <div className="section-heading-wrap">
-        <h3 id={title.toLowerCase().replace(/\s+/g, '-')}>
+        <Heading level="h3" size="section" id={title.toLowerCase().replace(/\s+/g, '-')}>
           {title}
-        </h3>
+        </Heading>
       </div>
       {children}
     </section>
@@ -25,22 +32,22 @@ function ResumeSection({
 
 function ExperienceCard({ job }: { job: Experience }) {
   return (
-    <article className="card" aria-label={`${job.role} at ${job.company}`}>
+    <Card aria-label={`${job.role} at ${job.company}`}>
       <div className="card-header">
         <div>
-          <h4>{job.role}</h4>
-          <p className="company">{job.company}</p>
+          <Heading level="h4" size="card">{job.role}</Heading>
+          <Text tone='accent' className="company">{job.company}</Text>
         </div>
 
-        <div className="meta" aria-label={`${job.location || 'Remote'} ${job.startDate} to ${job.endDate || 'Present'}`}>
-          <span>{job.location || 'Remote'}</span>
-          <span>
+        <div aria-label={`${job.location || 'Remote'} ${job.startDate} to ${job.endDate || 'Present'}`}>
+          <Text size="meta" tone="muted">{job.location || 'Remote'}</Text>
+          <Text size="meta">
             {job.startDate} - {job.endDate || 'Present'}
-          </span>
+          </Text>
         </div>
       </div>
 
-      {job.description && <p className="description">{job.description}</p>}
+      {job.description && <Text className="description">{job.description}</Text>}
 
       <ul className="achievement-list">
         {job.achievements.map((achievement) => (
@@ -51,30 +58,30 @@ function ExperienceCard({ job }: { job: Experience }) {
       {job.technologies && job.technologies.length > 0 && (
         <div className="tag-list" aria-label="Technologies used">
           {job.technologies.map((technology) => (
-            <span key={`${job.company}-${technology}`} className="tag">{technology}</span>
+            <Tag key={`${job.company}-${technology}`} tone="technology">{technology}</Tag>
           ))}
         </div>
       )}
-    </article>
+    </Card>
   )
 }
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="card" aria-label={project.name}>
-      <h4>{project.name}</h4>
-      <p>{project.description}</p>
+    <Card aria-label={project.name}>
+      <Heading level='h4' size='card'>{project.name}</Heading>
+      <Text>{project.description}</Text>
 
       {project.technologies && project.technologies.length > 0 && (
         <div className="tag-list" aria-label="Project technologies">
           {project.technologies.map((technology) => (
-            <span key={`${project.name}-${technology}`} className="tag">
+            <Tag key={`${project.name}-${technology}`} tone="technology">
               {technology}
-            </span>
+            </Tag>
           ))}
         </div>
       )}
-    </article>
+    </Card>
   )
 }
 
@@ -88,77 +95,81 @@ export function ResumePage({ resume }: ResumePageProps) {
 
   return (
     <main className="resume-page">
-      <header className="resume-header">
+      <Container>
         <p className="eyebrow">Profile</p>
-        <h1>{resume.name}</h1>
-        <h2>{resume.title}</h2>
-        <p className="summary">{resume.summary}</p>
-      </header>
+        <Heading level="h1" size="page">
+          {resume.name}
+        </Heading>
+        <Heading level="h2" size="">
+          {resume.title}
+        </Heading>
+        <Text size="summary">{resume.summary}</Text>
 
-      <ResumeSection title="Profile">
-        <div className="profile-card">
-          <p>{resume.summary}</p>
-        </div>
-      </ResumeSection>
+        <ResumeSection title="Profile">
+          <div className="profile-card">
+            <p>{resume.summary}</p>
+          </div>
+        </ResumeSection>
 
-      <ResumeSection title="Experience">
-        <div className="stack">
-          {resume.experience.map((job) => (
-            <ExperienceCard key={`${job.company}-${job.role}`} job={job} />
-          ))}
-        </div>
-      </ResumeSection>
+        <ResumeSection title="Experience">
+          <Stack>
+            {resume.experience.map((job) => (
+              <ExperienceCard key={`${job.company}-${job.role}`} job={job} />
+            ))}
+          </Stack>
+        </ResumeSection>
 
-      <ResumeSection title="Projects">
-        <div className="stack">
-          {resume.projects?.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </div>
-      </ResumeSection>
+        <ResumeSection title="Projects">
+          <Stack>
+            {resume.projects?.map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </Stack>
+        </ResumeSection>
 
-      <ResumeSection title="Skills">
-        <div className="tag-list" aria-label="Skills and competency areas">
-          {resume.skills.map((skill) => (
-            <span key={skill.name} className="tag skill-tag">
-              {skill.name}
-              {skill.level ? ` · ${skill.level}` : ''}
-            </span>
-          ))}
-        </div>
-      </ResumeSection>
+        <ResumeSection title="Skills">
+          <div className="tag-list" aria-label="Skills and competency areas">
+            {resume.skills.map((skill) => (
+              <Tag key={skill.name} tone="skill">
+                {skill.name}
+                {skill.level ? ` · ${skill.level}` : ''}
+              </Tag>
+            ))}
+          </div>
+        </ResumeSection>
 
-      <ResumeSection title="Education">
-        <div className="stack">
-          {resume.education.map((entry) => (
-            <article key={`${entry.institution}-${entry.degree}`} className="card">
-              <h4>{entry.degree}</h4>
-              <p className="company">{entry.institution}</p>
-              {entry.field && <p>{entry.field}</p>}
-              <p className="meta">
-                {entry.startDate || 'N/A'} - {entry.endDate || 'Present'}
-              </p>
-            </article>
-          ))}
-        </div>
-      </ResumeSection>
+        <ResumeSection title="Education">
+          <Stack>
+            {resume.education.map((entry) => (
+              <article key={`${entry.institution}-${entry.degree}`} className="card">
+                <Heading level="h4" size="card">{entry.degree}</Heading>
+                <p className="company">{entry.institution}</p>
+                {entry.field && <p>{entry.field}</p>}
+                <Text size="meta">
+                  {entry.startDate || 'N/A'} - {entry.endDate || 'Present'}
+                </Text>
+              </article>
+            ))}
+          </Stack>
+        </ResumeSection>
 
-      <ResumeSection title="Contact Links">
-        <div className="contact-list" aria-label="Contact links">
-          {profileLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            >
-              {link.value}
-            </a>
-          ))}
+        <ResumeSection title="Contact Links">
+          <div className="contact-list" aria-label="Contact links">
+            {profileLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                {link.value}
+              </Link>
+            ))}
 
-          {resume.contact.location && <span>{resume.contact.location}</span>}
-        </div>
-      </ResumeSection>
+            {resume.contact.location && <span>{resume.contact.location}</span>}
+          </div>
+        </ResumeSection>
+      </Container>
     </main>
   )
 }

@@ -1,10 +1,3 @@
-.resume-header {
-  margin-bottom: var(--resume-header-margin-bottom);
-  padding: var(--resume-header-padding-top)
-    0
-    var(--resume-header-padding-bottom);
-}
-
 .eyebrow {
   margin: 0 0 var(--space-3);
   color: var(--color-accent);
@@ -12,29 +5,6 @@
   font-weight: var(--font-weight-extrabold);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.resume-header h1 {
-  margin: 0;
-  color: var(--resume-header-primary-color);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: -0.06em;
-}
-
-.resume-header h2 {
-  margin: var(--space-3) 0 var(--space-4);
-  color: var(--resume-header-secondary-color);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: var(--font-weight-semibold);
-}
-
-.summary {
-  max-width: 68rem;
-  margin: 0;
-  color: var(--resume-header-summary-color);
-  line-height: 1.7;
-  font-size: 1.05rem;
 }
 
 .section-heading-wrap {
@@ -60,11 +30,6 @@
   background: linear-gradient(90deg, var(--color-accent), rgba(190, 91, 53, 0.15));
 }
 
-.stack {
-  display: grid;
-  gap: 1rem;
-}
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -82,16 +47,6 @@
   margin: 0.38rem 0 0;
   color: var(--color-accent);
   font-weight: var(--font-weight-bold);
-}
-
-.meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  color: var(--color-text-muted);
-  font-size: 0.87rem;
-  text-align: right;
-  white-space: nowrap;
 }
 
 .description {
@@ -116,23 +71,6 @@
   gap: 0.6rem;
 }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
-  background: var(--color-surface-tag);
-  color: var(--color-tag-text);
-  font-size: 0.76rem;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.02em;
-}
-
-.skill-tag {
-  background: var(--color-surface-skill);
-  color: var(--color-skill-text);
-}
-
 .contact-list {
   display: flex;
   flex-wrap: wrap;
@@ -140,16 +78,10 @@
   align-items: center;
 }
 
-.contact-list a,
 .contact-list span {
   color: var(--color-text-primary);
   text-decoration: none;
   font-weight: var(--font-weight-semibold);
-}
-
-.contact-list a:hover,
-.contact-list a:focus-visible {
-  text-decoration: underline;
 }
 
 @media (max-width: 720px) {
