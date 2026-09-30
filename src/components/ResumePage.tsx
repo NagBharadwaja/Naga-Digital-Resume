@@ -96,18 +96,17 @@ export function ResumePage({ resume }: ResumePageProps) {
   return (
     <main className="resume-page">
       <Container>
-        <p className="eyebrow">Profile</p>
+        <Text className='eyebrow'>Profile</Text>
         <Heading level="h1" size="page">
           {resume.name}
         </Heading>
         <Heading level="h2" size="">
           {resume.title}
         </Heading>
-        <Text size="summary">{resume.summary}</Text>
-
+        
         <ResumeSection title="Profile">
           <div className="profile-card">
-            <p>{resume.summary}</p>
+            <Text>{resume.summary}</Text>
           </div>
         </ResumeSection>
 
