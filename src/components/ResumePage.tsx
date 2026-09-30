@@ -1,88 +1,16 @@
-import type { Experience, Project, Resume } from '../data/types'
-import { Card } from './primitives/Card'
-import { Container } from './primitives/Container'
-import { Heading } from './primitives/Heading'
-import { Link } from './primitives/Link'
-import { Stack } from './primitives/Stack'
-import { Tag } from './primitives/Tag'
-import { Text } from './primitives/Text'
+import type { Resume } from '../data/types';
+import { Container } from './primitives/Container';
+import { Heading } from './primitives/Heading';
+import { Link } from './primitives/Link';
+import { Stack } from './primitives/Stack';
+import { Tag } from './primitives/Tag';
+import { Text } from './primitives/Text';
+import { ResumeSection } from './domain/ResumeSection';
+import { ExperienceCard } from './domain/ExperienceCard';
+import { ProjectCard } from './domain/ProjectCard';
 
 interface ResumePageProps {
   resume: Resume
-}
-
-function ResumeSection({
-  title,
-  children,
-}: {
-  title: string
-  children: React.ReactNode
-}) {
-  return (
-    <section className="resume-section" aria-labelledby={title.toLowerCase().replace(/\s+/g, '-')}> 
-      <div className="section-heading-wrap">
-        <Heading level="h3" size="section" id={title.toLowerCase().replace(/\s+/g, '-')}>
-          {title}
-        </Heading>
-      </div>
-      {children}
-    </section>
-  )
-}
-
-function ExperienceCard({ job }: { job: Experience }) {
-  return (
-    <Card aria-label={`${job.role} at ${job.company}`}>
-      <div className="card-header">
-        <div>
-          <Heading level="h4" size="card">{job.role}</Heading>
-          <Text tone='accent' className="company">{job.company}</Text>
-        </div>
-
-        <div aria-label={`${job.location || 'Remote'} ${job.startDate} to ${job.endDate || 'Present'}`}>
-          <Text size="meta" tone="muted">{job.location || 'Remote'}</Text>
-          <Text size="meta">
-            {job.startDate} - {job.endDate || 'Present'}
-          </Text>
-        </div>
-      </div>
-
-      {job.description && <Text className="description">{job.description}</Text>}
-
-      <ul className="achievement-list">
-        {job.achievements.map((achievement) => (
-          <li key={achievement}>{achievement}</li>
-        ))}
-      </ul>
-
-      {job.technologies && job.technologies.length > 0 && (
-        <div className="tag-list" aria-label="Technologies used">
-          {job.technologies.map((technology) => (
-            <Tag key={`${job.company}-${technology}`} tone="technology">{technology}</Tag>
-          ))}
-        </div>
-      )}
-    </Card>
-  )
-}
-
-function ProjectCard({ project }: { project: Project }) {
-  return (
-    <Card aria-label={project.name}>
-      <Heading level='h4' size='card'>{project.name}</Heading>
-      <Text>{project.description}</Text>
-
-      {project.technologies && project.technologies.length > 0 && (
-        <div className="tag-list" aria-label="Project technologies">
-          {project.technologies.map((technology) => (
-            <Tag key={`${project.name}-${technology}`} tone="technology">
-              {technology}
-            </Tag>
-          ))}
-        </div>
-      )}
-    </Card>
-  )
 }
 
 export function ResumePage({ resume }: ResumePageProps) {
