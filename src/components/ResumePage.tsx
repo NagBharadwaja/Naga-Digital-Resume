@@ -1,13 +1,14 @@
 import type { Resume } from '../data/types';
 import { Container } from './primitives/Container';
-import { Heading } from './primitives/Heading';
 import { Link } from './primitives/Link';
 import { Stack } from './primitives/Stack';
 import { Tag } from './primitives/Tag';
-import { Text } from './primitives/Text';
 import { ResumeSection } from './domain/ResumeSection';
 import { ExperienceCard } from './domain/ExperienceCard';
 import { ProjectCard } from './domain/ProjectCard';
+import { EducationCard } from './domain/EducationCard';
+import { ProfileCard } from './domain/ProfileCard';
+import { ResumeHeader } from './domain/ResumeHeader';
 
 interface ResumePageProps {
   resume: Resume
@@ -24,18 +25,10 @@ export function ResumePage({ resume }: ResumePageProps) {
   return (
     <main className="resume-page">
       <Container>
-        <Text className='eyebrow'>Profile</Text>
-        <Heading level="h1" size="page">
-          {resume.name}
-        </Heading>
-        <Heading level="h2" size="">
-          {resume.title}
-        </Heading>
+        <ResumeHeader name={resume.name} title={resume.title} />
         
         <ResumeSection title="Profile">
-          <div className="profile-card">
-            <Text>{resume.summary}</Text>
-          </div>
+          <ProfileCard summary={resume.summary} />
         </ResumeSection>
 
         <ResumeSection title="Experience">
@@ -68,14 +61,7 @@ export function ResumePage({ resume }: ResumePageProps) {
         <ResumeSection title="Education">
           <Stack>
             {resume.education.map((entry) => (
-              <article key={`${entry.institution}-${entry.degree}`} className="card">
-                <Heading level="h4" size="card">{entry.degree}</Heading>
-                <p className="company">{entry.institution}</p>
-                {entry.field && <p>{entry.field}</p>}
-                <Text size="meta">
-                  {entry.startDate || 'N/A'} - {entry.endDate || 'Present'}
-                </Text>
-              </article>
+              <EducationCard study={entry} />
             ))}
           </Stack>
         </ResumeSection>

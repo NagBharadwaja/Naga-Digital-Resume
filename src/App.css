@@ -5,7 +5,7 @@
 .resume-page {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: var(--resume-page-padding-top)
+  padding-block: var(--resume-page-padding-top)
     var(--resume-page-padding-bottom);
 }
 
