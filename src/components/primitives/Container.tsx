@@ -7,7 +7,7 @@ interface ContainerProps {
 
 export function Container({ children, className }: ContainerProps) {
     return (
-        <div className={`container ${className}`.trim()}>
+        <div className={`container ${className}`}>
             {children}
         </div>
     )

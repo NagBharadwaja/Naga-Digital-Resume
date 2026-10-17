@@ -9,12 +9,41 @@ import { ProjectCard } from './domain/ProjectCard';
 import { EducationCard } from './domain/EducationCard';
 import { ProfileCard } from './domain/ProfileCard';
 import { ResumeHeader } from './domain/ResumeHeader';
+import { useState } from 'react';
 
 interface ResumePageProps {
   resume: Resume
 }
 
 export function ResumePage({ resume }: ResumePageProps) {
+  const [expandedSections, setExpandedSections] = useState({
+    profile: true,
+    experience: true,
+    projects: true,
+    skills: true,
+    education: true,
+    contactLinks: true
+  });
+  type SectionKey = keyof typeof expandedSections;
+
+  function toggleSection(section: SectionKey) {
+    setExpandedSections((current) => ({
+      ...current,
+      [section]: !current[section]
+    }))
+  }
+
+  function setAllSectionsExpanded(isExpanded: boolean) {
+    setExpandedSections({
+      profile: isExpanded,
+      experience: isExpanded,
+      projects: isExpanded,
+      skills: isExpanded,
+      education: isExpanded,
+      contactLinks: isExpanded
+    })
+  }
+  
   const profileLinks = [
     { label: 'Email', href: `mailto:${resume.contact.email}`, value: resume.contact.email },
     { label: 'Website', href: resume.contact.website, value: 'Website' },
@@ -25,13 +54,26 @@ export function ResumePage({ resume }: ResumePageProps) {
   return (
     <main className="resume-page">
       <Container>
-        <ResumeHeader name={resume.name} title={resume.title} />
+        <ResumeHeader
+          name={resume.name}
+          title={resume.title}
+          onExpandAll={() => setAllSectionsExpanded(true)}
+          onCollapseAll={() => setAllSectionsExpanded(false)}
+        />
         
-        <ResumeSection title="Profile">
+        <ResumeSection
+          title="Profile"
+          isExpanded={expandedSections.profile}
+          onToggle={() => toggleSection('profile')}
+          >
           <ProfileCard summary={resume.summary} />
         </ResumeSection>
 
-        <ResumeSection title="Experience">
+        <ResumeSection
+          title="Experience"
+          isExpanded={expandedSections.experience}
+          onToggle={() => toggleSection('experience')}
+        >
           <Stack>
             {resume.experience.map((job) => (
               <ExperienceCard key={`${job.company}-${job.role}`} job={job} />
@@ -39,7 +81,11 @@ export function ResumePage({ resume }: ResumePageProps) {
           </Stack>
         </ResumeSection>
 
-        <ResumeSection title="Projects">
+        <ResumeSection
+          title="Projects"
+          isExpanded={expandedSections.projects}
+          onToggle={() => toggleSection('projects')}
+        >
           <Stack>
             {resume.projects?.map((project) => (
               <ProjectCard key={project.name} project={project} />
@@ -47,7 +93,11 @@ export function ResumePage({ resume }: ResumePageProps) {
           </Stack>
         </ResumeSection>
 
-        <ResumeSection title="Skills">
+        <ResumeSection
+          title="Skills"
+          isExpanded={expandedSections.skills}
+          onToggle={() => toggleSection('skills')}
+        >
           <ul className="tag-list" aria-label="Skills and competency areas">
             {resume.skills.map((skill) => (
               <li key={skill.name}>
@@ -60,7 +110,11 @@ export function ResumePage({ resume }: ResumePageProps) {
           </ul>
         </ResumeSection>
 
-        <ResumeSection title="Education">
+        <ResumeSection
+          title="Education"
+          isExpanded={expandedSections.education}
+          onToggle={() => toggleSection('education')}
+        >
           <Stack>
             {resume.education.map((entry) => (
               <EducationCard study={entry} />
@@ -68,7 +122,11 @@ export function ResumePage({ resume }: ResumePageProps) {
           </Stack>
         </ResumeSection>
 
-        <ResumeSection title="Contact Links">
+        <ResumeSection
+          title="Contact Links"
+          isExpanded={expandedSections.contactLinks}
+          onToggle={() => toggleSection('contactLinks')}
+        >
           <ul className="contact-list" aria-label="Contact links">
             {profileLinks.map((link) => (
               <li key="link.label">
