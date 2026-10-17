@@ -48,14 +48,16 @@ export function ResumePage({ resume }: ResumePageProps) {
         </ResumeSection>
 
         <ResumeSection title="Skills">
-          <div className="tag-list" aria-label="Skills and competency areas">
+          <ul className="tag-list" aria-label="Skills and competency areas">
             {resume.skills.map((skill) => (
-              <Tag key={skill.name} tone="skill">
-                {skill.name}
-                {skill.level ? ` · ${skill.level}` : ''}
-              </Tag>
+              <li key={skill.name}>
+                <Tag tone="skill">
+                  {skill.name}
+                  {skill.level ? ` · ${skill.level}` : ''}
+                </Tag>
+              </li>
             ))}
-          </div>
+          </ul>
         </ResumeSection>
 
         <ResumeSection title="Education">
@@ -67,20 +69,20 @@ export function ResumePage({ resume }: ResumePageProps) {
         </ResumeSection>
 
         <ResumeSection title="Contact Links">
-          <div className="contact-list" aria-label="Contact links">
+          <ul className="contact-list" aria-label="Contact links">
             {profileLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                {link.value}
-              </Link>
+              <li key="link.label">
+                <Link
+                  href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                >
+                  {link.value}
+                </Link>
+              </li>
             ))}
-
-            {resume.contact.location && <span>{resume.contact.location}</span>}
-          </div>
+          </ul>
+          <p className="contact-location">{resume.contact.location}</p>
         </ResumeSection>
       </Container>
     </main>

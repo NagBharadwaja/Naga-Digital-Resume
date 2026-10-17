@@ -30,11 +30,13 @@ export function ExperienceCard({ job }: { job: Experience }) {
       </ul>
 
       {job.technologies && job.technologies.length > 0 && (
-        <div className="tag-list" aria-label="Technologies used">
+        <ul className="tag-list" aria-label="Technologies used">
           {job.technologies.map((technology) => (
-            <Tag key={`${job.company}-${technology}`} tone="technology">{technology}</Tag>
+            <li key={`${job.company}=${technology}`}>
+              <Tag tone="technology">{technology}</Tag>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </Card>
   )
