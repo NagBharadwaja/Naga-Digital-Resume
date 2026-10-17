@@ -117,7 +117,7 @@ export function ResumePage({ resume }: ResumePageProps) {
         >
           <Stack>
             {resume.education.map((entry) => (
-              <EducationCard study={entry} />
+              <EducationCard study={entry} key={`${entry.startDate}-${entry.endDate}`} />
             ))}
           </Stack>
         </ResumeSection>
@@ -129,7 +129,7 @@ export function ResumePage({ resume }: ResumePageProps) {
         >
           <ul className="contact-list" aria-label="Contact links">
             {profileLinks.map((link) => (
-              <li key="link.label">
+              <li key={link.label}>
                 <Link
                   href={link.href}
                   target={link.href.startsWith('http') ? '_blank' : undefined}
