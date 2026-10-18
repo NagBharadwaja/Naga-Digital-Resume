@@ -6,6 +6,7 @@ import { Text } from "../primitives/Text";
 type ResumeHeaderProps = {
     name: string;
     title: string;
+    isAllExpanded: boolean;
     onExpandAll: () => void;
     onCollapseAll: () => void;  
 };
@@ -24,11 +25,19 @@ export function ResumeHeader (props: ResumeHeaderProps) {
                 </Heading>
             </div>
             <div className="resume-header-actions" role="group" aria-label="Resume sections">
-                <button type="button" onClick={props.onExpandAll}>
-                Expand all
+                <button
+                    type="button"
+                    onClick={props.onExpandAll}
+                    className={props.isAllExpanded ? 'expandAllSelected' : ''}
+                >
+                    Expand all
                 </button>
-                <button type="button" onClick={props.onCollapseAll}>
-                Collapse all
+                <button
+                    type="button"
+                    onClick={props.onCollapseAll}
+                    className={!props.isAllExpanded ? 'collapseAllSelected' : ''}
+                >
+                    Collapse all
                 </button>
             </div>
         </Flex>

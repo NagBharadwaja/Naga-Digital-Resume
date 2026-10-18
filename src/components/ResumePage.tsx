@@ -26,6 +26,15 @@ export function ResumePage({ resume }: ResumePageProps) {
   });
   type SectionKey = keyof typeof expandedSections;
 
+  const isAllExpanded = (
+    expandedSections.contactLinks &&
+    expandedSections.education &&
+    expandedSections.experience &&
+    expandedSections.profile &&
+    expandedSections.projects &&
+    expandedSections.skills
+  );
+
   function toggleSection(section: SectionKey) {
     setExpandedSections((current) => ({
       ...current,
@@ -57,6 +66,7 @@ export function ResumePage({ resume }: ResumePageProps) {
         <ResumeHeader
           name={resume.name}
           title={resume.title}
+          isAllExpanded={isAllExpanded}
           onExpandAll={() => setAllSectionsExpanded(true)}
           onCollapseAll={() => setAllSectionsExpanded(false)}
         />
