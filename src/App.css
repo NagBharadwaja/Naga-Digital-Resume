@@ -33,6 +33,24 @@
   margin-inline: auto;
 }
 
+.resume-header-actions button {
+  border: 1px solid #aa5500;
+  height: 40px;
+  background: none;
+  border-radius: .25em;
+  cursor: pointer;
+}
+
+.resume-header-actions button:focus-visible {
+  outline: none;
+}
+
+.resume-header-actions .expandAllSelected,
+.resume-header-actions .collapseAllSelected {
+  background: #aa5500;
+  color: #ffffff;
+}
+
 .stack {
   display: grid;
 }
