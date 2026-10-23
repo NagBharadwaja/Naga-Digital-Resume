@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Heading } from "../primitives/Heading";
 
 function toSectionId(title: string): string {
@@ -16,7 +15,6 @@ type ResumeSectionProps = {
 export function ResumeSection(props: ResumeSectionProps) {
     const sectionId = toSectionId(props.title);
     const contentId = `${sectionId}-content`;
-    // const [isExpanded, setIsExpanded] = useState(true);
 
     return (
         <section className="resume-section" aria-labelledby={sectionId}>

@@ -1,4 +1,4 @@
-import type { Resume } from "./types";
+import type { Resume } from "./types.js";
 
 export const resume: Resume = {
 	name: "Naga Dandibhotla",
@@ -75,5 +75,3 @@ export const resume: Resume = {
 		{ name: "Docker Certified Associate", issuer: "Mirantis", date: "2022" },
 	],
 };
-
-

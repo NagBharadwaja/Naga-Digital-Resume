@@ -36,7 +36,7 @@
 .resume-header-actions button {
   border: 1px solid #aa5500;
   height: 40px;
-  background: none;
+  background: #eeeeee;
   border-radius: .25em;
   cursor: pointer;
 }
