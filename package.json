@@ -7,6 +7,7 @@
     "dev": "vite",
     "dev:client": "vite",
     "build": "tsc -b && vite build",
+    "build:all": "npm run build && npm run build --prefix backend",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "npm run dev && npm --prefix backend run dev"
