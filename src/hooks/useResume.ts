@@ -7,7 +7,7 @@ export function useResume () {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const controller = new AbortController()
+        const controller = new AbortController();
     
         fetchResumeData(controller.signal)
           .then(setResume)

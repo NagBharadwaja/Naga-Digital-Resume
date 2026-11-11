@@ -1,0 +1,543 @@
+/*
+    Naga Digital Resume Visual Language Inventory
+
+    Source: App.css, index.css
+    
+    This file documents the current visual language.
+    It is not yet the active token layer
+*/
+
+/*
+    =========================================================
+    Design Direction
+    =========================================================
+
+    Personality: Editorial, Warm, Professional, Minimal, Content-focused.
+
+    Core visual idea:
+    - Dark navy creates hierarchy.
+    - Warm orange provides emphasis.
+    - Warm cream creates a paper-like background.
+    - Translucent cards separate content from the page.
+*/
+
+/*
+    =========================================================
+    Color Inventory
+    =========================================================
+
+    Primary text
+    - Value: #14213d (Dark Navy)
+    - Used by: .resume-header h1, .resume-section h3, .card h4, .contact-list a, .contact-list span.
+    Secondary text
+    - Value: #be5b35 (Warm Orange)
+    - Used by: .eyebrow, .resume-section h3::after, .card, .profile-card, .company
+    Background
+    - Value: #f3e7de (Warm Cream)
+    - Used by: .tag
+    Text
+    - Value: #344054 (Dark Gray)
+    - Used by: .resume-header h2, .resume-section p, .summary, .description, .achievement-list
+    Muted Text
+    - Value: #475467 (Medium Gray)
+    - Used by: .meta
+    Page background
+    - Value: #f5f1e8 (Light Cream)
+    - Used by: #root (page background)
+    Card background
+    - Value: rgba(255, 255, 255, 0.78)
+    - Used by: .card, .profile-card
+    Technology tag
+    - Background: #f3e7de
+    - Text: #5a2d18
+    - Used by: .tag
+
+    Skill tag
+    - Background: #e9f0ff
+    - Text: #1d4ed8
+    - Used by: .skill-tag
+
+    Card border
+    - Value: rgba(20, 33, 61, 0.08)
+    - Used by: .card, .profile-card
+
+    Card shadow
+    - Value: 0 14px 35px rgba(20, 33, 61, 0.06)
+    - Used by: .card, .profile-card
+*/
+
+/* =========================================================
+   Typography Inventory
+   =========================================================
+
+  Font family:
+  - Georgia
+  - Times New Roman
+  - Serif fallback
+
+  Main heading:
+  Selector: .resume-header h1
+  Size: clamp(2.5rem, 5vw, 4.5rem)
+  Line height: 1
+  Letter spacing: -0.06em
+
+  Subtitle:
+  Selector: .resume-header h2
+  Size: clamp(1.1rem, 2vw, 1.5rem)
+  Weight: 600
+
+  Summary text:
+  Selector: .summary
+  Size: 1.05rem
+  Line height: 1.7
+
+  Section heading:
+  Selector: .resume-section h3
+  Size: 1.15rem
+  Transform: uppercase
+  Letter spacing: 0.1em
+
+  Eyebrow:
+  Selector: .eyebrow
+  Size: 0.78rem
+  Weight: 800
+  Transform: uppercase
+  Letter spacing: 0.14em
+
+  Metadata:
+  Selector: .meta
+  Size: 0.87rem
+  Color: muted text
+
+  Tags:
+  Selector: .tag
+  Size: 0.76rem
+  Weight: 700
+  Letter spacing: 0.02em
+*/
+
+/* =========================================================
+   Spacing Inventory
+   =========================================================
+
+  Page container:
+  Selector: .resume-page
+  Maximum width: 1120px
+  Horizontal padding: 1.5rem
+  Top padding: 3.5rem
+  Bottom padding: 5rem
+
+  Header:
+  Selector: .resume-header
+  Bottom margin: 2.5rem
+  Top padding: 2rem
+  Bottom padding: 0.5rem
+
+  Sections:
+  Selector: .resume-section
+  Top margin: 2.5rem
+
+  Section heading:
+  Selector: .section-heading-wrap
+  Bottom margin: 1rem
+
+  Card:
+  Selector: .card, .profile-card
+  Vertical padding: 1.4rem
+  Horizontal padding: 1.35rem
+
+  Card header:
+  Selector: .card-header
+  Gap: 1.25rem
+
+  Stack:
+  Selector: .stack
+  Gap: 1rem
+
+  Achievement list:
+  Selector: .achievement-list
+  Item gap: 0.6rem
+
+  Tags:
+  Selector: .tag-list
+  Gap: 0.6rem
+  Top margin: 1rem
+*/
+
+/* =========================================================
+   Shape Inventory
+   =========================================================
+   
+  Card:
+  - Border radius: 18px
+  - Left accent border: 4px
+
+  Tag:
+  - Border radius: 999px
+  - Shape: pill
+
+  Section decoration:
+  - Height: 2px
+  - Linear gradient using the accent color
+*/
+
+
+/* =========================================================
+   Layout Inventory
+   =========================================================
+   
+  Main content:
+  - Centered container
+  - Maximum width of 1120px
+
+  Card collection:
+  - Single-column CSS grid
+  - 1rem gap
+
+  Card header:
+  - Horizontal flex layout on desktop
+  - Content aligned to the top
+  - Space distributed between main content and metadata
+
+  Contact links:
+  - Flexible wrapping row
+  - Vertically centered
+*/
+
+
+/* =========================================================
+   Responsive Inventory
+   =========================================================
+   
+  Breakpoint:
+  - 720px
+
+  Below 720px:
+  - Page top padding changes to 2rem.
+  - Card header changes from row to column.
+  - Metadata becomes left-aligned.
+  - Metadata may wrap onto multiple lines.
+*/
+
+
+/* =========================================================
+   Interaction Inventory
+   =========================================================
+
+  Contact links:
+  - No underline by default.
+  - Underline on hover.
+  - Underline on keyboard focus.
+
+  Not currently defined:
+  - Shared focus-visible style for all interactive elements.
+  - Hover state for cards.
+  - Reduced-motion behavior.
+  - Dark theme.
+  - Loading, empty, or error states.
+*/
+
+/*
+  Design tokens for Naga Digital Resume Visual Language Inventory
+  - These tokens are derived from the current visual language.
+*/
+
+/* =========================================================
+   Primitive Tokens
+   ========================================================= */
+:root {
+  --ndr-ndr-color-navy-900: #14213d;
+  --ndr-color-navy-700: #344054;
+  --ndr-color-navy-600: #475467;
+
+  --ndr-color-orange-600: #ad5500;
+  --ndr-color-brown-900: #5a2d18;
+
+  --ndr-color-cream-100: #f5f1e8;
+  --ndr-color-cream-200: #f3e7de;
+  --ndr-color-blue-100: #e9f0ff;
+  --ndr-color-blue-700: #1d4ed8;
+  --ndr-color-white: #ffffff;
+
+  /* Opacity */
+  --ndr-opacity-card: 0.78;
+  --ndr-opacity-border: 0.08;
+  --ndr-opacity-shadow: 0.06;
+
+  /* Spacing */
+  --ndr-space-1: 0.25rem;
+  --ndr-space-2: 0.5rem;
+  --ndr-space-3: 0.75rem;
+  --ndr-space-4: 1rem;
+  --ndr-space-5: 1.25rem;
+  --ndr-space-6: 1.5rem;
+  --ndr-space-8: 2rem;
+  --ndr-space-10: 2.5rem;
+  --ndr-space-14: 3.5rem;
+  --ndr-space-20: 5rem;
+
+  /* Typography */
+  --ndr-font-family-body: Georgia, 'Times New Roman', serif;
+
+  --ndr-font-size-xs: 0.76rem;
+  --ndr-font-size-sm: 0.78rem;
+  --ndr-font-size-meta: 0.87rem;
+  --ndr-font-size-base: 1rem;
+  --ndr-font-size-summary: 1.05rem;
+  --ndr-font-size-section: 1.15rem;
+  --ndr-font-size-card-title: 1.2rem;
+
+  --ndr-font-weight-semibold: 600;
+  --ndr-font-weight-bold: 700;
+  --ndr-font-weight-extrabold: 800;
+
+  --ndr-line-height-tight: 1;
+  --ndr-line-height-body: 1.6;
+  --ndr-line-height-relaxed: 1.7;
+
+  /* Shape */
+  --ndr-radius-card: 18px;
+  --ndr-radius-pill: 999px;
+
+  /* Layout */
+  --ndr-content-max-width: 1120px;
+  --ndr-breakpoint-mobile: 720px;
+
+  /* Effects */
+  --ndr-shadow-card: 0 14px 35px rgba(20, 33, 61, var(--ndr-opacity-shadow));
+}
+
+/* =========================================================
+   Semantic Tokens
+   ========================================================= */
+:root {
+  /* Text */
+  --ndr-color-text-primary: var(--ndr-color-navy-900);
+  --ndr-color-text-secondary: var(--ndr-color-navy-700);
+  --ndr-color-text-muted: var(--ndr-color-navy-600);
+
+  /* Surfaces */
+  --ndr-color-surface-page: var(--ndr-color-cream-100);
+  --ndr-color-surface-card: rgb(255 255 255 / var(--ndr-opacity-card));
+  --ndr-color-surface-tag: var(--ndr-color-cream-200);
+  --ndr-color-surface-skill: var(--ndr-color-blue-100);
+
+  /* Accent and borders */
+  --ndr-color-accent: var(--ndr-color-orange-600);
+  --ndr-color-tag-text: var(--ndr-color-brown-900);
+  --ndr-color-skill-text: var(--ndr-color-blue-700);
+  --ndr-color-border-subtle: rgb(20 33 61 / var(--ndr-opacity-border));
+}
+
+.ndr-stack {
+  display: grid;
+}
+
+.ndr-stack-sm {
+  gap: var(--ndr-space-2);
+}
+
+.ndr-stack-md {
+  gap: var(--ndr-stack-gap);
+}
+
+.ndr-stack-lg {
+  gap: var(--ndr-space-10);
+}
+
+.ndr-flex-space-between {
+  justify-content: space-between;
+}
+
+.ndr-gap-md {
+  margin: var(--space-3) 0;
+}
+
+.ndr-card {
+  background: var(--ndr-color-surface-card);
+  border: var(--ndr-card-border-width) solid var(--ndr-color-border-subtle);
+  border-left: var(--ndr-card-accent-width) solid var(--ndr-color-accent);
+  border-radius: var(--ndr-radius-card);
+  padding: var(--ndr-card-padding-block)
+    var(--ndr-card-padding-inline);
+  box-shadow: var(--ndr-shadow-card);
+}
+
+.ndr-heading {
+  margin: 0;
+  color: var(--ndr-color-text-primary);
+}
+
+.ndr-heading-page {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: var(--ndr-line-height-tight);
+}
+
+.ndr-heading-section {
+  font-size: var(--ndr-font-size-section);
+  line-height: var(--ndr-line-height-body);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ndr-heading-card {
+  font-size: var(--ndr-font-size-card-title);
+  line-height: var(--ndr-line-height-body);
+}
+
+.ndr-text {
+  margin: 0;
+}
+
+.ndr-text-primary {
+  color: var(--ndr-color-text-primary);
+}
+
+.ndr-text-secondary {
+  color: var(--ndr-color-text-secondary);
+}
+
+.ndr-text-muted {
+  color: var(--ndr-color-text-muted);
+}
+
+.ndr-text-accent {
+  color: var(--ndr-color-accent);
+}
+
+.ndr-text-body {
+  line-height: var(--ndr-line-height-body);
+}
+
+.ndr-text-summary {
+  font-size: var(--ndr-font-size-summary);
+  line-height: var(--ndr-line-height-relaxed);
+}
+
+.ndr-text-meta {
+  font-size: var(--ndr-font-size-meta);
+  text-align: right;
+}
+
+.ndr-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--ndr-tag-padding-block) var(--ndr-tag-padding-inline);
+  border-radius: var(--ndr-tag-radius);
+  font-size: var(--ndr-font-size-xs);
+  font-weight: var(--ndr-font-weight-bold);
+  letter-spacing: 0.02em;
+}
+
+.ndr-tag-technology {
+  background: var(--ndr-color-surface-tag);
+  color: var(--ndr-color-tag-text);
+}
+
+.ndr-tag-skill {
+  background: var(--ndr-color-surface-skill);
+  color: var(--ndr-color-skill-text);
+}
+
+.ndr-link {
+  color: var(--ndr-color-text-primary);
+  text-decoration: underline;
+  font-weight: var(--ndr-font-weight-semibold);
+}
+
+.ndr-link:hover {
+  text-decoration: underline;
+}
+
+.ndr-eyebrow {
+  margin: 0 0 var(--ndr-space-3);
+  color: var(--ndr-color-accent);
+  font-size: var(--ndr-font-size-sm);
+  font-weight: var(--ndr-font-weight-extrabold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ndr-section-heading-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--ndr-space-2);
+  margin-bottom: var(--ndr-space-4);
+  cursor: pointer;
+}
+
+.ndr-section-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ndr-color-accent);
+}
+
+.ndr-section-toggle:focus-visible {
+  outline: 1px solid #888888;
+}
+
+.ndr-section-toggle-icon {
+  width: 1em;
+  height: 1em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: transform 160ms ease;
+}
+
+.ndr-section-toggle[aria-expanded='true'] .ndr-section-toggle-icon {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ndr-section-toggle-icon {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   Component Tokens
+   ========================================================= */
+:root {
+  /* Sections */
+  --ndr-section-margin-top: var(--ndr-space-10);
+  --ndr-section-heading-margin-bottom: var(--ndr-space-4);
+
+  /* Cards */
+  --ndr-card-padding-block: 1.4rem;
+  --ndr-card-padding-inline: 1.35rem;
+  --ndr-card-border-width: 1px;
+  --ndr-card-accent-width: 4px;
+  --ndr-card-header-gap: var(--ndr-space-5);
+
+  /* Lists */
+  --ndr-list-item-gap: var(--ndr-space-2);
+  --ndr-stack-gap: var(--ndr-space-4);
+
+  /* Tags */
+  --ndr-tag-padding-block: var(--ndr-space-2);
+  --ndr-tag-padding-inline: var(--ndr-space-3);
+  --ndr-tag-gap: var(--ndr-space-2);
+  --ndr-tag-radius: var(--ndr-radius-pill);
+
+  /* Contact links */
+  --ndr-contact-column-gap: var(--ndr-space-4);
+  --ndr-contact-row-gap: var(--ndr-space-3);
+}
+
+.ndr-container {
+  width: min(
+    100% - calc(var(--ndr-space-6) * 2),
+    var(--ndr-content-max-width)
+  );
+  margin-inline: auto;
+}

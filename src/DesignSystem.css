@@ -334,17 +334,17 @@
    ========================================================= */
 :root {
   /* Resume page */
-  --resume-page-padding-inline: var(--space-6);
+  /* --resume-page-padding-inline: var(--space-6);
   --resume-page-padding-top: var(--space-14);
-  --resume-page-padding-bottom: var(--space-20);
+  --resume-page-padding-bottom: var(--space-20); */
 
   /* Resume header */
-  --resume-header-margin-bottom: var(--space-10);
+  /* --resume-header-margin-bottom: var(--space-10);
   --resume-header-padding-top: var(--space-8);
   --resume-header-padding-bottom: var(--space-2);
   --resume-header-primary-color: var(--color-text-primary);
   --resume-header-secondary-color: var(--color-text-secondary);
-  --resume-header-summary-color: var(--color-text-secondary);
+  --resume-header-summary-color: var(--color-text-secondary); */
 
   /* Sections */
   --section-margin-top: var(--space-10);

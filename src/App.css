@@ -25,13 +25,13 @@
 /* =========================================================
    Primitive Components
    ========================================================= */
-.container {
+/* .container {
   width: min(
     100% - calc(var(--resume-page-padding-inline) * 2),
     var(--content-max-width)
   );
   margin-inline: auto;
-}
+} */
 
 .resume-header-actions button {
   border: 1px solid #aa5500;
@@ -51,7 +51,7 @@
   color: #ffffff;
 }
 
-.stack {
+/* .stack {
   display: grid;
 }
 
@@ -224,6 +224,25 @@
   .section-toggle-icon {
     transition: none;
   }
+} */
+
+:root {
+  /* Resume page */
+  --resume-page-padding-inline: var(--space-6);
+  --resume-page-padding-top: var(--space-14);
+  --resume-page-padding-bottom: var(--space-20);
+
+  /* Resume header */
+  --resume-header-margin-bottom: var(--space-10);
+  --resume-header-padding-top: var(--space-8);
+  --resume-header-padding-bottom: var(--space-2);
+  --resume-header-primary-color: var(--color-text-primary);
+  --resume-header-secondary-color: var(--color-text-secondary);
+  --resume-header-summary-color: var(--color-text-secondary);
+
+  /* Contact links */
+  --contact-column-gap: var(--space-4);
+  --contact-row-gap: var(--space-3);
 }
 
 .resume-section h3 {

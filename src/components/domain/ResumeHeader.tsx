@@ -1,7 +1,8 @@
-import { Flex } from "../primitives/Flex";
-import { Gap } from "../primitives/Gap";
-import { Heading } from "../primitives/Heading";
-import { Text } from "../primitives/Text";
+// import { Flex } from "../primitives/Flex";
+// import { Gap } from "../primitives/Gap";
+// import { Heading } from "../primitives/Heading";
+// import { Text } from "../primitives/Text";
+import { Flex, Gap, Heading, Text } from "@naga-digital-resume/ui";
 
 type ResumeHeaderProps = {
     name: string;
@@ -15,7 +16,7 @@ export function ResumeHeader (props: ResumeHeaderProps) {
     return (
         <Flex>
             <div>
-                <Text className='eyebrow'>Profile</Text>
+                <Text className='ndr-eyebrow'>Profile</Text>
                 <Heading level="h1" size="page">
                     {props.name}
                 </Heading>

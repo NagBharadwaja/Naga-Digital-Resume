@@ -1,4 +1,5 @@
-import { Heading } from "../primitives/Heading";
+// import { Heading } from "../primitives/Heading";
+import { Heading } from "@naga-digital-resume/ui";
 
 function toSectionId(title: string): string {
     const sectionId = title.toLowerCase().replace(/\s+/g, '-');
@@ -18,7 +19,7 @@ export function ResumeSection(props: ResumeSectionProps) {
 
     return (
         <section className="resume-section" aria-labelledby={sectionId}>
-            <div className="section-heading-wrap" onClick={props.onToggle}>
+            <div className="ndr-section-heading-wrap" onClick={props.onToggle}>
                 <Heading level="h3" size="section" id={sectionId}>
                     {props.title}
                 </Heading>
@@ -39,14 +40,14 @@ export function ExpandCollapseToggle (
     { contentId, isExpanded, title }: { contentId: string, isExpanded: boolean; title: string; }) {
     return (
         <button
-            className="section-toggle"
+            className="ndr-section-toggle"
             type="button"
             aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${title} section}`}
             aria-expanded={isExpanded}
             aria-controls={contentId}
         >
             <svg
-                className="section-toggle-icon"
+                className="ndr-section-toggle-icon"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
                 focusable="false"

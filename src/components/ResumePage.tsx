@@ -1,8 +1,9 @@
 import type { Resume } from '../data/types';
-import { Container } from './primitives/Container';
-import { Link } from './primitives/Link';
-import { Stack } from './primitives/Stack';
-import { Tag } from './primitives/Tag';
+// import { Container } from './primitives/Container';
+// import { Link } from './primitives/Link';
+// import { Stack } from './primitives/Stack';
+// import { Tag } from './primitives/Tag';
+import { Container, Link, Stack, Tag } from '@naga-digital-resume/ui';
 import { ResumeSection } from './domain/ResumeSection';
 import { ExperienceCard } from './domain/ExperienceCard';
 import { ProjectCard } from './domain/ProjectCard';

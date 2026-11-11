@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES2023",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",
+        "strict": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "rootDir": ".",
+        "outDir": "./dist"
+    },
+    "include": ["index.ts", "primitives/**/*/tsx"],
+    "exclude": ["vite.config.ts"]
+}
