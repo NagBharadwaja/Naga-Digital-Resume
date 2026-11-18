@@ -11,6 +11,6 @@
         "rootDir": ".",
         "outDir": "./dist"
     },
-    "include": ["index.ts", "primitives/**/*/tsx"],
+    "include": ["index.ts", "primitives/**/*.tsx"],
     "exclude": ["vite.config.ts"]
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:client": "vite",
-    "build": "npm run build --workspace @naga-digital-resume/ui &&  -b && vite build",
+    "build": "npm run build --workspace @naga-digital-resume/ui && vite build",
     "build:all": "npm run build && npm run build --prefix backend",
     "lint": "eslint .",
     "preview": "vite preview",
